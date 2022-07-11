@@ -12,17 +12,28 @@ app.set("view engine", "ejs");
 app.use(bodyParse.urlencoded({extended:true}));
 
 let items = ["buy mouse", "buy Keyboard"];
+let worke_items = [];
+let today = new Date();
 
 app.get("/", function(req, res){
 
-	let today = new Date();
 	day = today.toLocaleDateString("en-US", options);
-	res.render("list", {day:day, newItems:items});
+	res.render("list", {day:day, newItems:items, a:"list"});
 });
 
 app.post('/', function(req, res){
-	items.push(req.body.toDo);
+	if(req.body.to === "work")
+	{
+		worke_items.push(req.body.toDo);
+		res.redirect('/work');
+	}
+	else
+		items.push(req.body.toDo);
 	res.redirect('/');
+});
+
+app.get('/work', function(req, res){
+	res.render("list", {day:"work", newItems:worke_items, a:"work"});	
 });
 
 app.listen(3000, function(){
