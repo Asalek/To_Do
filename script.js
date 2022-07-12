@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParse.urlencoded({extended:true}));
 
-let items = ["buy mouse", "buy Keyboard"];
+const items = ["buy mouse", "buy Keyboard"];
 let worke_items = [];
 let today = new Date();
 
