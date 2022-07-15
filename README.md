@@ -3,8 +3,8 @@
 ## how to use :
 
 ```
-git clone 
-cd TO_DO
+git clone https://github.com/Asalek/To_Do.git
+cd To_Do
 npm install
 nodemon script.js || node script.js
 ```
